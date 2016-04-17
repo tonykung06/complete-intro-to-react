@@ -10,6 +10,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "lint": "standard",
+    "test-coverage": "nyc --reporter=lcov --reporter=text --reporter=html --require babel-register --require babel-polyfill --extension .jsx npm test",
     "test": "mocha --require test/helpers/setup.js"
   },
   "dependencies": {
@@ -43,7 +44,7 @@
     "jsdom": "^8.0.4",
     "json-loader": "^0.5.4",
     "mocha": "^2.4.5",
-    "nyc": "^6.0.0",
+    "nyc": "^6.4.0",
     "react-addons-test-utils": "^0.14.7",
     "semistandard": "^7.0.5",
     "sinon": "^1.17.3",
