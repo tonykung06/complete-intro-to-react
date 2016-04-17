@@ -46,7 +46,6 @@
     "mocha": "^2.4.5",
     "nyc": "^6.4.0",
     "react-addons-test-utils": "^0.14.7",
-    "semistandard": "^7.0.5",
     "sinon": "^1.17.3",
     "webpack": "^1.12.13"
   },
