@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ShowCard = (props) => (
+const ShowCard = props => (
   <div className="show-card">
     <img src={`public/img/posters/${props.poster}`} alt="" className="show-card-img" />
     <div className="show-card-text">

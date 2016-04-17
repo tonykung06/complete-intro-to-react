@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Layout = (props) => {
+const Layout = props => {
   return (
     <div className="app-container">
       {props.children}
