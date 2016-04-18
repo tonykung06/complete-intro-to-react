@@ -1,5 +1,7 @@
 import React from 'react';
 import ShowCard from './ShowCard.jsx';
+import Header from './Header.jsx';
+
 const {arrayOf, object} = React.PropTypes;
 
 class Search extends React.Component {
@@ -10,22 +12,23 @@ class Search extends React.Component {
       searchTerm: ''
     };
 
-    this.handleSearchTermEvent = this.handleSearchTermEvent.bind(this);
+    this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
 
-  handleSearchTermEvent(event) {
+  handleSearchTermChange(searchTerm) {
     this.setState({
-      searchTerm: event.target.value
+      searchTerm
     });
   }
 
   render() {
     return (
       <div className="container">
-        <header className="header">
-          <h1 className="brand">svideo</h1>
-          <input type="text" value={this.state.searchTerm} onChange={this.handleSearchTermEvent} className="search-input" placeholder="Search" />
-        </header>
+        <Header
+          handleSearchTermChange={this.handleSearchTermChange}
+          searchTerm={this.state.searchTerm}
+          showSearch={true}
+        />
         <div className="shows">
           {
             this.props.route.shows.filter(show => {
