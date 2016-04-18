@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header.jsx';
 
 const {object} = React.PropTypes;
 
@@ -9,9 +10,7 @@ class Details extends React.Component {
 
     return (
       <div className="container">
-        <header className="header">
-          <h1 className="brand">svideo</h1>
-        </header>
+        <Header />
         <div className="video-info">
           <h1 className="video-title">
             {title}
