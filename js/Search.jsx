@@ -1,6 +1,6 @@
 import React from 'react';
-import data from '../public/data';
 import ShowCard from './ShowCard.jsx';
+const {arrayOf, object} = React.PropTypes;
 
 class Search extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Search extends React.Component {
         </header>
         <div className="shows">
           {
-            data.shows.filter(show => {
+            this.props.route.shows.filter(show => {
               return `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) > -1;
             }).map(show => <ShowCard {...show} key={show.imdbID} />)
           }
@@ -37,5 +37,9 @@ class Search extends React.Component {
     );
   }
 }
+
+Search.propTypes = {
+  route: object
+};
 
 export default Search;
