@@ -6,6 +6,8 @@ import Details from './Details.jsx';
 import Layout from './Layout.jsx';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import {shows} from '../public/data';
+import {store} from './Store.jsx';
+import {Provider} from 'react-redux';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,13 +30,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router history={hashHistory}>
-        <Route path="/" component={Layout}>
-          <IndexRoute component={Landing} />
-          <Route path="/search" component={Search} shows={shows} />
-          <Route path="/details/:id" component={Details} onEnter={this.assignShow} />
-        </Route>
-      </Router>
+      <Provider store={store}>
+        <Router history={hashHistory}>
+          <Route path="/" component={Layout}>
+            <IndexRoute component={Landing} />
+            <Route path="/search" component={Search} shows={shows} />
+            <Route path="/details/:id" component={Details} onEnter={this.assignShow} />
+          </Route>
+        </Router>
+      </Provider>
     );
   }
 }

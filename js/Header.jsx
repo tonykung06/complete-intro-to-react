@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import {connector} from './Store.jsx';
 
 const {func, bool, string} = React.PropTypes;
 
@@ -11,9 +12,9 @@ class Header extends React.Component {
   }
 
   handleSearchTermChange(e) {
-    this.props.handleSearchTermChange(e.target.value);
+    this.props.setSearchTerm(e.target.value);
   }
-  
+
   render() {
     let utilSpace = null;
 
@@ -45,9 +46,9 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  handleSearchTermChange: func,
+  setSearchTerm: func,
   showSearch: bool,
   searchTerm: string
 };
 
-export default Header;
+export default connector(Header);
