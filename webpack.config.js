@@ -6,7 +6,8 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     path: path.join(__dirname, '/public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/public/'//path to serve static files, webpack has to know this when it tries to grab chunked bundles for different pages
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json']
@@ -14,7 +15,7 @@ module.exports = {
   stats: {
     colors: true,
     reasons: true,
-    chunks: false
+    chunks: true
   },
   module: {
     preLoaders: [{
