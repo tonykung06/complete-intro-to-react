@@ -6,8 +6,9 @@ import Search from '../js/Search';
 import ShowCard from '../js/ShowCard';
 import {shallow, mount} from 'enzyme';
 import {shows} from '../public/data';
+import {store, rootReducer} from '../js/Store.jsx';
 
-describe('<Search />', () => {
+xdescribe('<Search />', () => {
   it('should render the brand', () => {
     const wrapper = shallow(<Search />);
     // console.log(wrapper.debug());
@@ -29,5 +30,30 @@ describe('<Search />', () => {
 
     expect(wrapper.state('searchTerm')).to.equal('house');
     expect(wrapper.find('.show-card').length).to.equal(2);
+  });
+});
+
+describe('Store', () => {
+  it('should boostrap', () => {
+    const state = rootReducer(undefined, {
+      type: '@@redux/INIT'
+    });
+
+    expect(state).to.deep.equal({
+      searchTerm: ''
+    });
+  });
+
+  it('should handle setSearchTerm action', () => {
+    const state = rootReducer({
+      searchTerm: 'some random string'
+    }, {
+      type: 'setSearchTerm',
+      value: 'correct string'
+    });
+
+    expect(state).to.deep.equal({
+      searchTerm: 'correct string'
+    });
   });
 });

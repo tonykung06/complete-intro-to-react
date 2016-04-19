@@ -1,4 +1,4 @@
-import {createStore} from 'redux';
+import {createStore, compose} from 'redux';
 import {connect} from 'react-redux';
 
 const SET_SEARCH_TERM = 'setSearchTerm';
@@ -24,7 +24,11 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
+// setup redux devtool
+const store = createStore(rootReducer, initialState, compose(
+  typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : (f) => f
+));
 
 // could create different connectors for different components, i.e. a connector should cater for the need of a component
 // ,so this could be defined in component files
@@ -45,5 +49,6 @@ const connector = connect(mapStateToProps, mapDispatchToProps);
 
 export {
   connector,
-  store
+  store,
+  rootReducer
 };
