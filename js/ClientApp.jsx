@@ -5,27 +5,12 @@ import Search from './Search.jsx';
 import Details from './Details.jsx';
 import Layout from './Layout.jsx';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
-import {shows} from '../public/data';
 import {store} from './Store.jsx';
 import {Provider} from 'react-redux';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    this.assignShow = this.assignShow.bind(this);
-  }
-
-  assignShow(nextState, replace) {
-    const showArray = shows.filter(item => nextState.params.id === item.imdbID);
-
-    if (showArray.length < 1) {
-      return replace('/');
-    }
-
-    Object.assign(nextState.params, showArray[0]);
-
-    return nextState;
   }
 
   render() {
@@ -34,8 +19,8 @@ class App extends React.Component {
         <Router history={hashHistory}>
           <Route path="/" component={Layout}>
             <IndexRoute component={Landing} />
-            <Route path="/search" component={Search} shows={shows} />
-            <Route path="/details/:id" component={Details} onEnter={this.assignShow} />
+            <Route path="/search" component={Search} />
+            <Route path="/details/:id" component={Details} />
           </Route>
         </Router>
       </Provider>

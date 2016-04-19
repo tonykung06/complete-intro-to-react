@@ -1,12 +1,17 @@
 import React from 'react';
-import Header from './Header.jsx';
+import Header from './Header';
+import {connector} from './Store';
 
-const {object} = React.PropTypes;
+const {object, arrayOf} = React.PropTypes;
 
 class Details extends React.Component {
+  getCurrentShow(shows, id) {
+    const showArray = shows.filter(item => id === item.imdbID);
+
+    return showArray[0];
+  }
   render() {
-    const params = this.props.params || {};
-    const {title, description, year, poster, trailer} = params;
+    const {title, description, year, poster, trailer} = this.getCurrentShow(this.props.shows, this.props.params.id) || {};
 
     return (
       <div className="container">
@@ -28,7 +33,8 @@ class Details extends React.Component {
 }
 
 Details.propTypes = {
-  params: object
+  params: object,
+  shows: arrayOf(object).isRequired
 };
 
-export default Details;
+export default connector(Details);

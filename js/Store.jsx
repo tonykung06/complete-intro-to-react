@@ -1,9 +1,11 @@
 import {createStore, compose} from 'redux';
 import {connect} from 'react-redux';
+import {shows} from '../public/data';
 
 const SET_SEARCH_TERM = 'setSearchTerm';
 const initialState = {
-  searchTerm: ''
+  searchTerm: '',
+  shows
 };
 
 const reduceSearchTerm = (state, action) => {
@@ -33,7 +35,8 @@ const store = createStore(rootReducer, initialState, compose(
 // could create different connectors for different components, i.e. a connector should cater for the need of a component
 // ,so this could be defined in component files
 const mapStateToProps = state => ({
-  searchTerm: state.searchTerm
+  searchTerm: state.searchTerm,
+  shows: state.shows
 });
 const mapDispatchToProps = dispatch => {
   return {
