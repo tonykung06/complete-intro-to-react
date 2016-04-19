@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, hashHistory} from 'react-router';
+import {Link, browserHistory} from 'react-router';
 import {connector} from './Store.jsx';
 
 const {func, string} = React.PropTypes;
@@ -16,7 +16,7 @@ class Landing extends React.Component {
   }
   gotoSearch(e) {
     e.preventDefault();
-    hashHistory.push('search');
+    browserHistory.push('search');
   }
   render() {
     return (

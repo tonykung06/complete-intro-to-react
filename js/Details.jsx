@@ -21,7 +21,7 @@ class Details extends React.Component {
             {title}
           </h1>
           <h1 className="video-year">({year})</h1>
-          <img src={`public/img/posters/${poster}`} alt="" className="video-poster"/>
+          <img src={`/public/img/posters/${poster}`} alt="" className="video-poster"/>
           <p className="video-description">{description}</p>
         </div>
         <div className="video-container">

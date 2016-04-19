@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: './js/ClientApp',
+  entry: './js/BrowserEntry.jsx',
   devtool: 'inline-source-map',
   output: {
     path: path.join(__dirname, '/public'),
