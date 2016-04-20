@@ -36,4 +36,4 @@ Landing.propTypes = {
   searchTerm: string
 };
 
-export default connector(Landing);
+module.exports = connector(Landing);

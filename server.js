@@ -12,7 +12,7 @@ const fs = require('fs');
 const port = 5050;
 const baseTemplate = fs.readFileSync('./index.html');
 const template = _.template(baseTemplate);
-const Routes = require('./js/ClientApp.jsx').Routes;
+const routes = require('./js/ClientApp.jsx').Routes;
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use('/public', express.static('./public'));
 
 app.use((req, res) => {
   match({
-    routes: Routes,
+    routes: routes,
     location: req.url
   }, (err, redirectLocation, renderProps) => {
     if (err) {

@@ -16,7 +16,7 @@ const rootRoute = {
   indexRoute: {
     getComponent(location, cb) {
       require.ensure([], () => {
-        cb(null, require('./Landing'));
+        cb(null, require('./Landing.jsx'));
       });
     }
   },
@@ -24,14 +24,14 @@ const rootRoute = {
     path: 'search',
     getComponent(location, cb) {
       require.ensure([], () => {
-        cb(null, require('./Search'));
+        cb(null, require('./Search.jsx'));
       });
     }
   }, {
     path: 'details/:id',
     getComponent(location, cb) {
       require.ensure([], () => {
-        cb(null, require('./Details'));
+        cb(null, require('./Details.jsx'));
       });
     }
   }]

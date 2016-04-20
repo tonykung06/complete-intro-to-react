@@ -28,4 +28,4 @@ Search.propTypes = {
   shows: arrayOf(object)
 };
 
-export default connector(Search);
+module.exports = connector(Search);

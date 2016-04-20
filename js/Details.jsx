@@ -63,4 +63,4 @@ Details.propTypes = {
   shows: arrayOf(object).isRequired
 };
 
-export default connector(Details);
+module.exports = connector(Details);
